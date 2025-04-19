@@ -1,0 +1,37 @@
+# ========== Unity .gitignore ==========
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+
+# User-specific files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Crashlytics
+crashlytics-build.properties
+
+# Gradle
+.gradle/
+*.apk
+*.aar
+*.keystore
+build/
