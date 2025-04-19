@@ -15,8 +15,6 @@ public class Game : MonoBehaviour
     {
         boxSpawner = FindObjectOfType<BoxSpawn>();
         uiManager = FindObjectOfType<UIManager_Game>();
-
-        // Cập nhật UI điểm khởi đầu
         uiManager.UpdateScoreUI(score);
     }
 
@@ -41,19 +39,17 @@ public class Game : MonoBehaviour
         if (!boxSpawner.DoesAnyBoxExist())
         {
             Debug.Log("Win!");
-            // Có thể gọi UI chiến thắng nếu bạn muốn
         }
         else if (boxSpawner.DoesAnyBoxReachBottom())
         {
             gameOver = true;
 
-            // Cập nhật highscore
             int highScore = PlayerPrefs.GetInt("HighScore", 0);
             if (score > highScore)
             {
                 PlayerPrefs.SetInt("HighScore", score);
                 PlayerPrefs.Save();
-                highScore = score; // Cập nhật để hiển thị đúng
+                highScore = score;
             }
 
             uiManager.ShowGameOver(score, highScore);
@@ -63,13 +59,13 @@ public class Game : MonoBehaviour
 
     public void RestartGame()
     {
-        Time.timeScale = 1f; // Nếu bạn từng dừng game bằng Time.timeScale
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ReturnToMenu()
     {
-        Time.timeScale = 1f; // Khôi phục lại thời gian nếu bị dừng
+        Time.timeScale = 1f;
         SceneManager.LoadScene("SceneMenu");
     }
 }

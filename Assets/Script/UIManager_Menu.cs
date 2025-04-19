@@ -10,7 +10,7 @@ public class UIManager_Menu : MonoBehaviour
     public void OnPlayButton()
     {
         HideAllPanels();
-        SceneManager.LoadScene("ScenePlay"); // Đổi tên scene nếu cần
+        SceneManager.LoadScene("ScenePlay"); 
     }
 
     public void OnHighScoreButton()

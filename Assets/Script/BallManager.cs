@@ -4,7 +4,7 @@ public class BallManager : MonoBehaviour
 {
     public static BallManager Instance;
 
-    public int ballCount = 0; // Số bóng hiện tại
+    public int ballCount = 0;
 
     private void Awake()
     {

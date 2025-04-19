@@ -12,7 +12,6 @@ public class UIManager_Game : MonoBehaviour
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
 
-        // Hiển thị điểm
         scoreText.text = "Score: " + currentScore;
         highScoreText.text = "High Score: " + highScore;
     }
@@ -25,13 +24,13 @@ public class UIManager_Game : MonoBehaviour
 
     public void OnRestartButton()
     {
-        Time.timeScale = 1f; // đề phòng bị tạm dừng
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void OnMenuButton()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("SceneMenu"); // đảm bảo SceneMenu đã được add vào build settings
+        SceneManager.LoadScene("SceneMenu");
     }
 }

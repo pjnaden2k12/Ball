@@ -47,9 +47,9 @@ public class BoxSpawn : MonoBehaviour
 
     public void MoveBoxesDownWithFreeze()
     {
-        turnCount++; // tăng mỗi lượt
+        turnCount++;
         List<Box> boxes = new List<Box>(FindObjectsOfType<Box>());
-        boxes.Sort((a, b) => a.transform.position.y.CompareTo(b.transform.position.y)); // từ dưới lên
+        boxes.Sort((a, b) => a.transform.position.y.CompareTo(b.transform.position.y));
 
         HashSet<Vector2> frozenPositions = new HashSet<Vector2>();
         foreach (Box box in boxes)
@@ -58,7 +58,7 @@ public class BoxSpawn : MonoBehaviour
 
             if (box.IsFrozen() || frozenPositions.Contains(currentPos + Vector2.down))
             {
-                frozenPositions.Add(currentPos); // ngăn object phía trên di chuyển
+                frozenPositions.Add(currentPos);
                 continue;
             }
 
@@ -79,18 +79,14 @@ public class BoxSpawn : MonoBehaviour
             {
                 Vector2 pos = new Vector2(x, topY);
                 Box newBox = Instantiate(prefabbox, pos, Quaternion.identity);
-                if (Random.value < 0.1f) // 10% tỉ lệ là box đột biến
+                if (Random.value < 0.1f)
                 {
                     newBox.isMutation = true;
                 }
 
-
-                // Tính máu theo lượt
                 int baseHP = 100;
                 int bonusHP = Mathf.RoundToInt(turnCount * Random.Range(10f, 30f));
                 int rawHP = baseHP + bonusHP;
-
-                // Làm tròn về bội số của 10
                 int finalHP = Mathf.CeilToInt(rawHP / 10f) * 10;
                 newBox.hp = finalHP;
 

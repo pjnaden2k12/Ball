@@ -9,13 +9,13 @@ public class BallShot : MonoBehaviour
 
     public float minY = 2;
 
-    public int maxBall = 5; // Chỉ là số lượng bóng gốc khi vào game
+    public int maxBall = 5;
 
     public Ball ballPrefab;
 
     public float ballSpeed = 5;
 
-    private int currentBall; // Số bóng hiện tại để bắn
+    private int currentBall;
     public TextMesh textMesh;
 
     private Game game;
@@ -34,7 +34,6 @@ public class BallShot : MonoBehaviour
     {
         if (isShooting) return;
 
-        // Điều khiển hướng bắn
         if (Input.GetMouseButton(0))
         {
             Vector3 targetPos = maincamera.ScreenToWorldPoint(Input.mousePosition);
@@ -46,7 +45,6 @@ public class BallShot : MonoBehaviour
             lookAt.LookAt(lookAtTarget);
         }
 
-        // Khi nhả chuột, bắn bóng
         if (Input.GetMouseButtonUp(0) && BallManager.Instance.ballCount > 0)
         {
             isShooting = true;
@@ -69,7 +67,6 @@ public class BallShot : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        // Chờ đến khi số lượng bóng quay lại đủ (reset lại lượt mới)
         while (BallManager.Instance.ballCount < count)
             yield return null;
 

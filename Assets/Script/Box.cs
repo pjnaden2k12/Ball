@@ -6,8 +6,8 @@ public class Box : MonoBehaviour
     public int hp = 100;
     public Sprite normalSprite;
     public Sprite frozenSprite;
-    public Sprite mutationSprite; // sprite cho box đột biến
-    public bool isMutation = false; // xác định box đột biến
+    public Sprite mutationSprite;
+    public bool isMutation = false;
 
     private int frozenTurns = 0;
     private SpriteRenderer spriteRenderer;

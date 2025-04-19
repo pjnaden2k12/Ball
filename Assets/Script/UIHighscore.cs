@@ -3,7 +3,7 @@ using TMPro;
 
 public class UIHighScore : MonoBehaviour
 {
-    public TMPro.TextMeshProUGUI highScoreText; // Text hiển thị điểm cao
+    public TMPro.TextMeshProUGUI highScoreText;
 
     private void Start()
     {
@@ -12,19 +12,14 @@ public class UIHighScore : MonoBehaviour
 
     public void UpdateHighScoreUI()
     {
-        // Lấy điểm cao nhất đã lưu từ PlayerPrefs
         int highScore = PlayerPrefs.GetInt("HighScore", 0);
-        // Hiển thị điểm cao trong UI
         highScoreText.text = "" + highScore;
     }
 
     public void ClearHighScore()
     {
-        // Xóa điểm cao
         PlayerPrefs.SetInt("HighScore", 0);
         PlayerPrefs.Save();
-
-        // Cập nhật lại UI sau khi xóa điểm cao
         UpdateHighScoreUI();
     }
 }
